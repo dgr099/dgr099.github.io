@@ -1,0 +1,219 @@
+#twitterFeed{
+    display: none;
+}
+
+.header >*{
+    margin-top: 0px;
+}
+.header{
+    background-color: black;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    height: 20px;
+    color: #b3b3b3;
+    text-align: center;
+}
+
+.latIcon{
+    font-size:10px;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #818181;
+}
+
+.home.latIcon{
+    color: #f1f1f1;
+}
+
+.subLMenu{
+  display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.subLMenu >*{
+    text-decoration: none;
+    
+}
+
+.subLMenu > *:hover{
+    color: #f1f1f1;
+}
+
+.subLMenu > * >*:hover{
+    color: #f1f1f1;
+}
+
+.menuLateral {
+    overflow: auto;
+    position: fixed;
+    width: 50px;
+    background-color: rgb(33, 33, 33);
+    left: 0;
+    top: 20px;
+    bottom: 0;
+    font-size: 22px;
+    /*background-color: red;*/
+    text-align: center;
+    z-index: 2;
+    padding-bottom: 10px;
+}
+
+#contenedorLateral {
+    display: inline-block;
+    margin-left: 25.1px;
+    height: 100%;
+    width: 0px;
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 15px;
+}
+  
+.cLateral a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+  }
+  
+
+.cLateral a:hover {
+    color: #f1f1f1;
+}
+  
+.cLateral .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+#terminal{
+    background-color: black;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    height: 80px;
+    color: #b3b3b3;
+    padding-bottom: 22.5px;
+}
+
+pre.bash {
+    font-size: medium ; 
+    font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
+    width: 100%;
+    display: inline-block;
+}
+span.bash.user{
+    color: rgba(26, 237, 103, 0.741);
+}
+
+span.bash.directory{
+    color: rgba(29, 106, 189, 0.618);
+}
+span.bash.username{
+    position: relative;
+    color: rgba(240, 122, 240, 0.83);
+}
+
+span.bash.mail{
+    position: relative;
+    color: rgba(152, 248, 239, 0.83);
+}
+span.bash.mail>a{
+    text-decoration: none;
+}
+
+span.bash.age{
+    color:rgba(243, 243, 89, 0.789);
+    position: relative;
+}
+span.bash.username span{
+    position:absolute;
+    right:0;
+    width:0;
+    background: black;
+    border-left: 1px solid #818181;
+    animation: write 3s steps(44);
+}
+
+span.bash.mail span{
+    position:absolute;
+    right:0;
+    width:0;
+    background: black;
+    border-left: 1px solid #818181;
+    animation: write 1.55s steps(24);
+}
+.profilePic{
+    height: 20vw;
+}
+div .bio{
+    overflow: auto;
+    height: 20vh;
+}
+
+span.bash.age span{
+    position:absolute;
+    right:0;
+    width:0;
+    background: black;
+    border-left: 1px solid #818181;
+    animation: write_erase 8s steps(54) infinite; 
+}
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+    margin-top: 15px;
+    margin-left: 40px;
+    overflow:hidden;
+    margin-bottom:80px;
+    
+}
+
+body{
+    background-color: rgb(45, 45, 45);
+}
+
+@media screen and (max-height: 450px) {
+    .cLateral {padding-top: 15px;}
+    .cLateral a {font-size: 18px;}
+}
+
+@keyframes write {
+    0%{
+        width: 100% 
+    }
+    100%{
+        width: 0%;
+    }
+}
+
+@keyframes write_erase {
+    0%{
+        width: 100% 
+    }
+
+    30%{
+        width:0 
+    }
+
+    70%{
+        width: 0;
+    }
+
+    100%{
+        width: 100%;
+    }
+}

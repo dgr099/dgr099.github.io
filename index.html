@@ -2,16 +2,219 @@
 <html>
 
 <head>
-    <title>dgr099</title>
+  <title>dgr099</title>
+  <link type="text/css" rel="stylesheet" href="stylesheets/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<script>
+  function getAge() {
+    today = new Date();
+    const birth = new Date('October 4, 2001 23:45:22');
+    // obtenemos el tiempo en segundos y con ello calculamos el resto
+    var seconds = Math.floor((today - (birth))/1000);
+    var minutes = Math.floor(seconds/60);
+    var hours = Math.floor(minutes/60);
+    var days = Math.floor(hours/24);
+    var years = Math.floor(days/365);
+    //ahora restamos a los días los que son años
+    days = days - (years*365);
+    //a las horas le restas las horas de los días y los años
+    hours = hours-(days*24) - (years*365*24);
+    minutes = minutes-(days*24*60)-(hours*60)- (years*365*24*60);
+    seconds = seconds-(days*24*60*60)-(hours*60*60)-(minutes*60)- (years*365*24*60*60);
+    var tag = document.createElement("span");
+    tag.innerHTML = "&#160;";
+    document.getElementById('bashAge').innerHTML =  years + " years, " + days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds." ;
+    document.getElementById('bashAge').appendChild(tag);
+    t = setTimeout('getAge()', 8000);
+  }
 
-<body>
-    <p>Prueba de mapa</p>
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3031.696021465086!2d-3.696127358900858!3d40.54830451108283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422bafcfe8b54f%3A0x6efe6978bbddb878!2sEscuela%20Polit%C3%A9cnica%20Superior%20UAM%20-%20Edificio%20Ada%20Lovelace!5e0!3m2!1ses!2ses!4v1649525977141!5m2!1ses!2ses"
-        width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+  function startTime() {
+    today = new Date();
+    h = today.getHours();
+    m = today.getMinutes();
+    s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    d = today.getDay();
+    var aux;
+    switch (d) {
+      case 0:
+        aux = "sun"
+        break;
+      case 1:
+        aux = "mon"
+        break;
+      case 2:
+        aux = "tue"
+        break;
+      case 3:
+        aux = "wed"
+        break;
+      case 4:
+        aux = "thur"
+        break;
+      case 5:
+        aux = "fri"
+        break;
+      case 6:
+        aux = "sat"
+        break;
 
-</body>
+
+    }
+    document.getElementById('digitalWatch').innerHTML = aux + "," + h + ":" + m;
+    t = setTimeout('startTime()', 500);
+  }
+
+  function checkTime(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
+  }
+
+  window.onload = function (){ 
+    startTime(); 
+    getAge(); 
+  }
+
+</script>
+<!--Esto para el twiiter-->
+<scriptasync src="https://platform.twitter.com/widgets.js" charset="utf-8">
+  </script>
+  <!--funciones para mostrar u ocultar info-->
+  <script>
+
+    //ultimá opción pinchada
+    let last = "home";
+    //muestra la parte indicada y oculta la sección anterior
+    function showPart(name) {
+      var x = document.getElementById(name);
+      //mostramos el elemento si no se podía ver
+      if (x.style.display != "block") {
+        x.style.display = "block";
+        document.getElementsByClassName(name)[0].style.color = "#f1f1f1";
+      }
+      //cambiamos el last y ocultamos el anterior
+      if (last != name) {
+        var x = document.getElementById(last);
+        if (x.style.display != "none") {
+          x.style.display = "none";
+        }
+        document.getElementsByClassName(last)[0].style.color = "#818181";
+        last = name;
+      }
+    }
+
+    //funccion para abrir la barra de navegación (ajusta el ancho)
+    function displayNav() {
+      var x = document.getElementById("contenedorLateral");
+      //si está oculta, mostrar
+      if (x.style.width == "0px" || x.style.width == 0) {
+        x.style.width = "150px"
+        document.getElementById("main").style.marginLeft = "190px";
+      }
+      else { //si se muestra ocultar
+        x.style.width = "0";
+        document.getElementById("main").style.marginLeft = "40px";
+      }
+      //si el home no se está mostrando que se muestre
+      if (document.getElementById("home").style.display != "block")
+        showPart("home")
+    }
+
+    //función para ocultar/modstrar el mapa (pone su display a none o block)
+    function hideMap() {
+      var x = document.getElementById("mapa");
+      if (x.style.display == "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+  </script>
+
+  <body>
+    <!--Header-->
+    <div class="header">
+      <p id="digitalWatch"></p>
+    </div>
+    <!--Menu lateral-->
+    <div class="menuLateral">
+      <div class="subLMenu">
+        <i class="home latIcon fa fa-files-o" onclick="displayNav()"></i>
+        <a href="https://www.instagram.com/dgr_099" target="_blank" rel="noopener noreferrer">
+          <i class="latIcon fa fa-instagram"></i>
+        </a>
+        <i class="twitterFeed latIcon fa fa-twitter" onclick="showPart('twitterFeed')"></i>
+        <a href="https://github.com/dgr099" target="_blank" rel="noopener noreferrer">
+          <i class="latIcon fa fa-github"></i>
+        </a>
+        <a href="https://www.aceptaelreto.com/user/profile.php?id=19133" target="_blank" rel="noopener noreferrer">
+          <i class="latIcon fa fa-trophy"></i>
+        </a>
+      </div>
+      <div id="contenedorLateral" class="cLateral">
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+
+    <!--Elementos del header-->
+
+    <!--Elementos de la pantalla-->
+    <div id="main">
+      <!--Pantalla del home-->
+      <div id="home">
+        <table>
+          <tr>
+            <td valign="top">
+              <img class="profilePic" src="media/foto1.jpg">
+            </td>
+            <td valign="top"> 
+              <div class="bio">
+                <h1>David Teófilo Garitagoitia Romero</h1>
+                <p>Final year student in the Computer Engineering degree at the UAM (Universidad Autónoma de Madrid).</p>
+                <p>Creative, ambitious, with initiative and determination but above all, eager to learn and develop me as a great computer scientist</p>
+                <p>Special interest in the development of applications in general and more specifically in smartphones, artificial intelligence, optimization, data managment, etc.</p>
+                <p>During my stay at the university, I participated in programming contests (Ada Byron, Acepta El Reto, online judge...) in some hackathons such as IF (Ideas Factory) and in the UAM Emprende project and I was a course and degree delegate.</p>
+                <p>Grades with honors in subjects such as Algebra and an average of 8.12 </p>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+      
+
+        <!--<iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3031.696021465086!2d-3.696127358900858!3d40.54830451108283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422bafcfe8b54f%3A0x6efe6978bbddb878!2sEscuela%20Polit%C3%A9cnica%20Superior%20UAM%20-%20Edificio%20Ada%20Lovelace!5e0!3m2!1ses!2ses!4v1649525977141!5m2!1ses!2ses"
+          width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        Test overflow
+        <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p> -->
+      </div>
+
+      <!--Pantalla de la feed de twitter-->
+      <div id="twitterFeed">
+        <a class="twitter-timeline" data-theme="dark" href="https://twitter.com/DGR_099?ref_src=twsrc%5Etfw"
+          target="_blank" rel="noopener noreferrer">Tweets by
+          DGR_099</a>
+      </div>
+    </div>
+
+    <!--Terminal inferior-->
+    <div id="terminal">
+      <pre class="bash">
+        <span class="bash user">david.garitagoitia@engineer:</span><span class="bash directory">~/Personal/data</span><span>$ info</span>
+        <span class="bash">    Name: <span class="bash username">David Teófilo Garitagoitia Romero.<span>&#160;</span></span></span>
+        <span class="bash">    Age: <span class="bash age" id="bashAge">XXX years, YYY days, ZZ hours, AA minutes, BB seconds.<span>&#160;</span></span></span>
+        <span class="bash">    Mail:<span class="bash mail"><a target="_blank" rel="noopener noreferrer" href="mailto:davidtgarita@gmail.com"> davidtgarita@gmail.com</a><span>&#160;</span></span></span></span>
+      </pre>
+    </div>
+  </body>
 
 </html>
