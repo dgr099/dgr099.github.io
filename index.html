@@ -1,227 +1,827 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <title>dgr099</title>
-  <link type="text/css" rel="stylesheet" href="stylesheets/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Your description">
+    <meta name="author" content="Your name">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
+    <meta property="og:site_name" content="" /> <!-- website name -->
+    <meta property="og:site" content="" /> <!-- website link -->
+    <meta property="og:title" content="" /> <!-- title shown in the actual shared post -->
+    <meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
+    <meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
+    <meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+    <meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
+
+    <!-- Webpage Title -->
+    <title>David T. Garitagoitia Romero Webpage Title</title>
+
+    <!-- Styles -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@600&display=swap"
+        rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/fontawesome-all.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- Favicon  -->
+    <link rel="icon" href="assets/images/favicon.png">
 </head>
-<script>
-  function getAge() {
-    today = new Date();
-    const birth = new Date('October 4, 2001 23:45:22');
-    // obtenemos el tiempo en segundos y con ello calculamos el resto
-    var seconds = Math.floor((today - (birth))/1000);
-    var minutes = Math.floor(seconds/60);
-    var hours = Math.floor(minutes/60);
-    var days = Math.floor(hours/24);
-    var years = Math.floor(days/365);
-    //ahora restamos a los días los que son años
-    days = days - (years*365);
-    //a las horas le restas las horas de los días y los años
-    hours = hours-(days*24) - (years*365*24);
-    minutes = minutes-(days*24*60)-(hours*60)- (years*365*24*60);
-    seconds = seconds-(days*24*60*60)-(hours*60*60)-(minutes*60)- (years*365*24*60*60);
-    var tag = document.createElement("span");
-    tag.innerHTML = "&#160;";
-    document.getElementById('bashAge').innerHTML =  years + " years, " + days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds." ;
-    document.getElementById('bashAge').appendChild(tag);
-    t = setTimeout('getAge()', 8000);
-  }
 
-  function startTime() {
-    today = new Date();
-    h = today.getHours();
-    m = today.getMinutes();
-    s = today.getSeconds();
-    m = checkTime(m);
-    s = checkTime(s);
-    d = today.getDay();
-    var aux;
-    switch (d) {
-      case 0:
-        aux = "sun"
-        break;
-      case 1:
-        aux = "mon"
-        break;
-      case 2:
-        aux = "tue"
-        break;
-      case 3:
-        aux = "wed"
-        break;
-      case 4:
-        aux = "thur"
-        break;
-      case 5:
-        aux = "fri"
-        break;
-      case 6:
-        aux = "sat"
-        break;
+<body data-spy="scroll" data-target=".fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
 
 
-    }
-    document.getElementById('digitalWatch').innerHTML = aux + ", " + h + ":" + m;
-    t = setTimeout('startTime()', 500);
-  }
 
-  function checkTime(i) {
-    if (i < 10) {
-      i = "0" + i;
-    }
-    return i;
-  }
+            <!-- Text Logo - Use this if you don't have a graphic logo -->
+            <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">dgr099</a> -->
 
-  window.onload = function (){ 
-    startTime(); 
-    getAge(); 
-  }
+            <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    //ultimá opción pinchada
-    let last = "home";
-    //muestra la parte indicada y oculta la sección anterior
-    function showPart(name) {
-      var x = document.getElementById(name);
-      //mostramos el elemento si no se podía ver
-      if (x.style.display != "block") {
-        x.style.display = "block";
-        document.getElementsByClassName(name)[0].style.color = "#f1f1f1";
-      }
-      //cambiamos el last y ocultamos el anterior
-      if (last != name) {
-        var x = document.getElementById(last);
-        if (x.style.display != "none") {
-          x.style.display = "none";
-        }
-        document.getElementsByClassName(last)[0].style.color = "#818181";
-        last = name;
-      }
-    }
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#header">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#certs">Certs</a>
+                    </li>
+                    <!--<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Drop</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item page-scroll" href="project.html">Project Details</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item page-scroll" href="terms.html">Terms Conditions</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item page-scroll" href="privacy.html">Privacy Policy</a>
+                        </div>
+                    </li>-->
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div> <!-- end of navbar-collapse -->
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
 
-    //funccion para abrir la barra de navegación (ajusta el ancho)
-    function displayNav() {
-      var x = document.getElementById("contenedorLateral");
-      //si está oculta, mostrar
-      if (x.style.width == "0px" || x.style.width == 0) {
-        x.style.width = "150px"
-        document.getElementById("main").style.marginLeft = "190px";
-      }
-      else { //si se muestra ocultar
-        x.style.width = "0";
-        document.getElementById("main").style.marginLeft = "40px";
-      }
-      //si el home no se está mostrando que se muestre
-      if (document.getElementById("home").style.display != "block")
-        showPart("home")
-    }
 
-    //función para ocultar/modstrar el mapa (pone su display a none o block)
-    function hideMap() {
-      var x = document.getElementById("mapa");
-      if (x.style.display == "none") {
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-      }
-    }
-  </script>
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="text-container">
+                        <h1 class="h1-large">David T. Garitagoitia Romero</h1>
+                        <h3 style="color: rgb(255, 255, 255);">Cybersecurity analyst</h3>
+                        <a class="btn-solid-lg page-scroll" href="#about">Proyects</a>
+                        <a class="btn-outline-lg page-scroll" href="#contact"><i class="fas fa-user"></i>Contact Me</a>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </header> <!-- end of header -->
+    <!-- end of header -->
 
-  <body>
-    <!--Header-->
-    <div class="header">
-      <p id="digitalWatch"></p>
-    </div>
-    <!--Menu lateral-->
-    <div class="menuLateral">
-      <div class="subLMenu">
-        <i class="home latIcon fa fa-files-o" onclick="displayNav()"></i>
-        <a href="https://www.instagram.com/dgr_099" target="_blank" rel="noopener noreferrer">
-          <i class="latIcon fa fa-instagram"></i>
-        </a>
-        <i class="twitterFeed latIcon fa fa-twitter" onclick="showPart('twitterFeed')"></i>
-        <a href="https://github.com/dgr099" target="_blank" rel="noopener noreferrer">
-          <i class="latIcon fa fa-github"></i>
-        </a>
-        <a href="https://www.aceptaelreto.com/user/profile.php?id=19133" target="_blank" rel="noopener noreferrer">
-          <i class="latIcon fa fa-trophy"></i>
-        </a>
-      </div>
-      <div id="contenedorLateral" class="cLateral">
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
-      </div>
-    </div>
 
-    <!--Elementos del header-->
 
-    <!--Elementos de la pantalla-->
-    <div id="main">
-      <!--Pantalla del home-->
-      <div id="home">
-        <table class="personalInfo">
-          <tr>
-            <td valign="top">
-              <img class="profilePic" src="media/foto1.jpg">
-            </td>
-            <td valign="top"> 
-              <div class="bio">
-                <h1>David Teófilo Garitagoitia Romero</h1>
-                <p>->Final year student in the Computer Engineering degree at the UAM (Universidad Autónoma de Madrid).</p>
-                <p>->Creative, ambitious, with initiative and determination but above all, eager to learn and develop me as a great computer scientist</p>
-                <p>->Special interest in the development of applications in general and more specifically in smartphones, artificial intelligence, optimization, data managment, etc.</p>
-                <p>->During my stay at the university, I participated in programming contests (Ada Byron, Acepta El Reto, online judge...) in some hackathons such as IF (Ideas Factory) and in the UAM Emprende project and I was a course and degree delegate.</p>
-                <p>->Grades with honors in subjects such as Algebra and an average of 8.12 </p>
-              </div>
-            </td>
-          </tr>
-        </table>
-        <div class="card">
-          <p>Main Skills</p>
-          <div class="graph">
-            <div class="bar bar-1"><p>C/C++</p></div>
-            <div class="bar bar-2"><p>Java</p></div>
-            <div class="bar bar-3"><p>Html</p></div>
-            <div class="bar bar-4"><p>Python</p></div>
-            <div class="bar bar-5"><p>CSS</p></div>
-            <div class="bar bar-6"><p>x8086</p></div>
-            <div class="bar bar-7"><p>Flutter</p></div>
-            <div class="bar bar-8"><p>JQuery</p></div>
-            <div class="bar bar-9"><p>SQL</p></div>
-            <div class="bar bar-10"><p>Bash</p></div>
-          </div>
 
-      
 
-        <!--<iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3031.696021465086!2d-3.696127358900858!3d40.54830451108283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422bafcfe8b54f%3A0x6efe6978bbddb878!2sEscuela%20Polit%C3%A9cnica%20Superior%20UAM%20-%20Edificio%20Ada%20Lovelace!5e0!3m2!1ses!2ses!4v1649525977141!5m2!1ses!2ses"
-          width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-        Test overflow
-        <p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p> -->
-      </div>
 
-      <!--Pantalla de la feed de twitter-->
-    </div>
-    <div id="twitterFeed">
-      <a class="twitter-timeline" data-theme="dark" href="https://twitter.com/DGR_099?ref_src=twsrc%5Etfw"
-        target="_blank" rel="noopener noreferrer">Tweets by
-        DGR_099</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </div>
 
-    <!--Terminal inferior-->
-    <div id="terminal">
-      <pre class="bash">
-        <span class="bash user">david.garitagoitia@engineer:</span><span class="bash directory">~/Personal/data</span><span>$ info</span>
-        <span class="bash">    Name: <span class="bash username">David Teófilo Garitagoitia Romero.<span>&#160;</span></span></span>
-        <span class="bash">    Age: <span class="bash age" id="bashAge">XXX years, YYY days, ZZ hours, AA minutes, BB seconds.<span>&#160;</span></span></span>
-        <span class="bash">    Mail:<span class="bash mail"><a target="_blank" rel="noopener noreferrer" href="mailto:davidtgarita@gmail.com"> davidtgarita@gmail.com</a><span>&#160;</span></span></span></span>
-      </pre>
-    </div>
-  </body>
+
+
+
+
+
+    <!--- -->
+    <!-- About-->
+    <div id="about" class="basic-1 bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="text-container first">
+                        <h2>Hi there I'm David,</h2>
+                        <p>I'm a Computer Engineer with a Master's in Cybersecurity. Passionate in several fields
+                            including OSINT, threat intelligence, hacking, perimeter security, leadership and
+                            mathematics.</p>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-4">
+                    <div class="text-container second">
+                        <div class="time">05/2024 - PRESENT</div>
+                        <h6>Cybersecurity Auditor Redeia</h6>
+                        <p>Purple Team member, working within the SOC of the Spanish Electricity Network.</p>
+                        <div class="time">01/2024 - 05/2024</div>
+                        <h6>Zerolynx Auditor</h6>
+                        <p>Pentester focused on mobile
+                            applications. Master's thesis awarded with honors.</p>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-4">
+                    <div class="text-container third">
+                        <div class="time">2023 - 2024</div>
+                        <h6>Cybersecurity Engineering Master</h6>
+                        <p>Master representative and Cybersecurity engineer at the UPM university.
+                        </p>
+                        <div class="time">2019 - 2023</div>
+                        <h6>Computer Engineering Student"</h6>
+                        <p>Grade representative and student at the UAM university in Spain.</p>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-1 -->
+    <!-- end of about -->
+
+    <br>
+    <br>
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="assets/images/myPictures/grad2.jpeg" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-8 pt-4 pt-lg-0 content">
+                    <h3>Cybersecurity &amp; Computer engineer</h3>
+                    <p class="fst-italic">
+                        With multiple honors and certifications, I am a top-ranked in several challenges 'Accept the
+                        Challenge' and have achieved a place among the top 1000 globally in cyber defense labs, CTF
+                        player and technology disseminator.
+                    </p>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul>
+                                <li>
+                                    <i class="bi bi-rounded-right"></i>
+                                    <strong>Medium Posts:</strong>
+                                    <a href="https://medium.com/@dgr099">@dgr099</a>
+                                </li>
+                                <li>
+                                    <i class="bi bi-rounded-right"></i>
+                                    <strong>AER profile:</strong>
+                                    <a href="https://aceptaelreto.com/user/lastsubmissions.php?id=19133">@dgr_099</a>
+                                </li>
+                                <li>
+                                    <i class="bi bi-rounded-right"></i>
+                                    <strong>linkedin:</strong>
+                                    <a href="https://www.linkedin.com/in/david-te%C3%B3filo-garitagoitia-romero/">David
+                                        T. Garitagoitia</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <ul>
+                                <li><i class="bi bi-rounded-right"></i> <strong>Age:</strong> 22</li>
+                                <li><i class="bi bi-rounded-right"></i> <strong>Studies:</strong> Masters Degree</li>
+                                <li>
+                                    <i class="bi bi-rounded-right"></i>
+                                    <strong>Email:</strong>
+                                    <a
+                                        href="mailto:davidt.garita@gmail.com?subject=Professional%20Contact&body=Body%20text%20here">davidt.garita@gmail.com</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p>
+
+
+
+                        <br>
+                        I am a computer engineer with a strong academic and professional background.
+                        <br> I have developed my own application which recieved an honor grade, showcasing advanced
+                        skills in programming and software design.
+                        <br>I have actively participated in entrepreneurship hackathons, recognized in the Actúa UPM
+                        program, highlighting my ability to
+                        take ideas from conception to effective implementation.
+                        <br> Additionally, I have received multiple
+                        honors throughout my academic career, including a distinction for my master's thesis, reflecting
+                        my dedication and excellence in the field of computer science and cybersecurity.
+
+
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End About Section -->
+
+
+    <!-- Vendor CSS Files -->
+    <!--<link href="assets/vendor/aos/aos.css" rel="stylesheet">-->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <br><br>
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="certs" class="portfolio">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Certs</h2>
+            </div>
+
+            <div class="row" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-12 d-flex justify-content-center">
+                    <ul id="portfolio-flters">
+                        <li data-filter="*" class="filter-active">All</li>
+                        <li data-filter=".filter-cyber">Cybersecurity</li>
+                        <li data-filter=".filter-IT">IT</li>
+                        <li data-filter=".filter-others">Others</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-cyber">
+                    <div class="portfolio-wrap">
+                        <a href="assets/certs/images/StanfordCourseCert.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox">
+                            <img src="assets/certs/images/StanfordCourseCert.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Cryptography I Standford</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-cyber">
+                    <div class="portfolio-wrap">
+                        <a href="assets/certs/images/CursoµCeENS.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox">
+                            <img src="assets/certs/images/CursoµCeENS.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Curso µCeENS CCN</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-cyber">
+                    <div class="portfolio-wrap">
+                        <a href="assets/certs/images/certCs3a.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox">
+                            <img src="assets/certs/images/certCs3a.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>CS3A Premiun Edition</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-cyber">
+                    <div class="portfolio-wrap">
+                        <a href="assets/certs/images/arcxThreathInt.jpeg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox">
+                            <img src="assets/certs/images/arcxThreatInt.jpeg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Cyber threat inteligence 101</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-cyber">
+                    <div class="portfolio-wrap">
+                        <a href="assets/certs/images/Certficate_of_CompletiionOSINT.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox">
+                            <img src="assets/certs/images/Certficate_of_CompletiionOSINT.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Inteligencia de Fuente Abierta (OSINT)</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-cyber">
+                    <div class="portfolio-wrap">
+                        <a href="assets/certs/images/cybrary-cert-comptia-security-plus.jpg"
+                            data-gallery="portfolioGallery" class="portfolio-lightbox">
+                            <img src="assets/certs/images/cybrary-cert-comptia-security-plus.jpg" class="img-fluid"
+                                alt="">
+                            <div class="portfolio-info">
+                                <h4>CompTIA Security+ (SY0-601)</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-IT">
+                    <div class="portfolio-wrap">
+                        <a href="assets/certs/images/AndroidTraining.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox">
+                            <img src="assets/certs/images/AndroidTraining.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Android Nougat Mobile Apps Training</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-cyber">
+                    <div class="portfolio-wrap">
+                        <a href="assets/certs/images/ResiliienciaEmpresarialDiploma.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox">
+                            <img src="assets/certs/images/ResiliienciaEmpresarialDiploma.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Resiliencia Empresarial: Análisis de riesgos en tiempos de crisis Telefónica Tech
+                                </h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-IT">
+                    <div class="portfolio-wrap">
+                        <a href="assets/certs/images/AdvancedGitCert.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox">
+                            <img src="assets/certs/images/AdvancedGitCert.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Advanced Git Programming</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-cyber">
+                    <div class="portfolio-wrap">
+                        <a href="assets/certs/images/Certificado_Incibe_técnico_seguridad.jpg"
+                            data-gallery="portfolioGallery" class="portfolio-lightbox">
+                            <img src="assets/certs/images/Certificado_Incibe_técnico_seguridad.jpg" class="img-fluid"
+                                alt="">
+                            <div class="portfolio-info">
+                                <h4>Certificado Curso Básico Técnico de Ciberseguridad Incibe</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-cyber">
+                    <div class="portfolio-wrap">
+                        <a href="assets/certs/images/CursoSeguridadTecnologíasInformaciónyComunicación.jpg"
+                            data-gallery="portfolioGallery" class="portfolio-lightbox">
+                            <img src="assets/certs/images/CursoSeguridadTecnologíasInformaciónyComunicación.jpg"
+                                class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Curso de seguridad de las tecnologías de la información y las comunicaciones CCN
+                                </h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-cyber">
+                    <div class="portfolio-wrap">
+                        <a href="assets/certs/images/Ethical_Hacker_BadgeCISCO.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox">
+                            <img src="assets/certs/images/Ethical_Hacker_BadgeCISCO.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Curso Ethical Hacker CISCO</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-cyber">
+                    <div class="portfolio-wrap">
+                        <a href="assets/certs/images/GobiernoGestionSeguridadInformacion.jpg"
+                            data-gallery="portfolioGallery" class="portfolio-lightbox">
+                            <img src="assets/certs/images/GobiernoGestionSeguridadInformacion.jpg" class="img-fluid"
+                                alt="">
+                            <div class="portfolio-info">
+                                <h4>Gobierno y gestión de la seguridad de la información Telefónica Tech</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-others">
+                    <div class="portfolio-wrap">
+                        <a href="assets/certs/images/SkillFront-Entrepre.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox">
+                            <img src="assets/certs/images/SkillFront-Entrepre.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Foundations of business and entrepreneurship Skillfront</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-cyber">
+                    <div class="portfolio-wrap">
+                        <a href="assets/certs/images/skillfront_ISO.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox">
+                            <img src="assets/certs/images/skillfront_ISO.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>ISO/IEC 27001:2022 Information Security Associate Skillfront</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-others">
+                    <div class="portfolio-wrap">
+                        <a href="assets/certs/images/EnglishCISCO.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox">
+                            <img src="assets/certs/images/EnglishCISCO.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>English for IT 2 CISCO</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+
+            </div>
+    </section><!-- End Portfolio Section -->
+
+
+    <br>
+    <br>
+
+    <!-- Styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
+
+    <!-- Projects -->
+    <div id="projects" class="basic-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="h2-heading">Projects</h2>
+                    <!--<p class="p-heading">Listed below are some of the most representative projects I've worked on. They range from basic web design for presentation sites to advanced web development for online shops</p>-->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-container">
+                        <div class="image-container">
+                            <a href="project.html">
+                                <img class="img-fluid" src="assets/images/projects/NonameFitnessApp.png" alt="alternative">
+                            </a>
+                        </div> <!-- end of image-container -->
+                    </div> <!-- end of text-container -->
+
+                
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="text-container">
+                                <div class="image-container">
+                                    <a href="https://github.com/dgr099/Flutter_Instagram_Clon_App">
+                                        <img class="img-fluid" src="assets/images/projects/clonInsta.jpg" alt="alternative">
+                                    </a>
+                                </div> <!-- end of image-container -->
+                            </div> <!-- end of text-container -->
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="text-container">
+                                        <div class="image-container">
+                                            <a href="https://github.com/dgr099/DADM">
+                                                <img class="img-fluid" src="assets/images/projects/memorice.jpg" alt="alternative">
+                                            </a>
+                                        </div> <!-- end of image-container -->
+                                    </div> <!-- end of text-container -->
+
+
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-3 -->
+    <!-- end of projects -->
+
+
+
+    <!-- Works -->
+    <div class="basic-4">
+        <div class="container">
+            <div class="row">
+
+                <div class="section-title">
+                    <h2>Conferences, hackathon and more.</h2>
+                </div><br><br>
+
+                <div class="col-lg-4">
+
+                    <div class="text-container">
+                        <div class="image-container">
+                            <a href="assets/images/myPictures/zerolynx.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox">
+                            <img src="assets/images/myPictures/zerolynx.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Aniversario Zerolynx</h4>
+                            </div>
+                        </a>
+                        </div> <!-- end of image-container -->
+                        
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+
+
+                <div class="col-lg-4">
+
+                    <div class="text-container">
+                        <div class="image-container">
+                            <a href="assets/images/myPictures/actuaupm.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox">
+                            <img src="assets/images/myPictures/actuaupm.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Actúa UPM</h4>
+                            </div>
+                        </a>
+                        </div> <!-- end of image-container -->
+                        
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+
+                <div class="col-lg-4">
+
+                    <div class="text-container">
+                        <div class="image-container">
+                            <a href="assets/images/myPictures/congresoEitsi.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox">
+                            <img src="assets/images/myPictures/congresoEitsi.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Congreso EITSI</h4>
+                            </div>
+                        </a>
+                        </div> <!-- end of image-container -->
+                        
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+
+
+                <div class="col-lg-4">
+
+                    <div class="text-container">
+                        <div class="image-container">
+                            <a href="assets/images/myPictures/emprendimiento.png" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox">
+                            <img src="assets/images/myPictures/emprendimiento.png" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Ideas Factory UAM</h4>
+                            </div>
+                        </a>
+                        </div> <!-- end of image-container -->
+                        
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+
+                <div class="col-lg-4">
+
+                    <div class="text-container">
+                        <div class="image-container">
+                            <a href="assets/images/myPictures/orla.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox">
+                            <img src="assets/images/myPictures/orla.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Graduación</h4>
+                            </div>
+                        </a>
+                        </div> <!-- end of image-container -->
+                        
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+
+                
+
+                
+
+                <div class="col-lg-4">
+
+                    <div class="text-container">
+                        <div class="image-container">
+                            <a href="assets/images/myPictures/adabyron.jpg" data-gallery="portfolioGallery"
+                            class="portfolio-lightbox">
+                            <img src="assets/images/myPictures/adabyron.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Ada Byron</h4>
+                            </div>
+                        </a>
+                        </div> <!-- end of image-container -->
+                        
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-4 -->
+    <!-- end of works -->
+
+    <!-- ======= Testimonials Section ======= 
+    <section id="testimonials" class="testimonials">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Testimonials</h2>
+                <p>I am proud to share the experiences and feedback from clients, collaborators, teamates, etc. 
+                    <br>Their words
+                    reflect the dedication and passion I put into every project. 
+                    <br>Here are some testimonials from people
+                    with whom we have had the pleasure to work.</p>
+            </div>
+
+            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="assets/images/testimonials/user.jpg" class="testimonial-img" alt="">
+                            <h3>User</h3>
+                            <h4>Ceo &amp; Founder</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                Testimonio de prueba.
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="assets/images/testimonials/user.jpg" class="testimonial-img" alt="">
+                            <h3>User</h3>
+                            <h4>Designer</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                Testimonio de prueba.
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+    </section> End Testimonials Section -->
+
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+
+    <!-- Section Divider -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <hr class="section-divider">
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+    <!-- end of section divider -->
+
+
+    <!-- Questions -->
+    <div class="accordion-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="h2-heading">Frequent questions</h2>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    How can I contact you and quickly get a quote for my online project?
+                                </button>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    The best way to reach me is through the contact form of by messaging me on my Linkedin or my mail account.</div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Other question
+                                </button>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    The best way to reach me is through the contact form of by messaging me on my social media accounts. For a fast quote make sure your provide many project details
+                                </div>
+                            </div>
+                        </div>
+
+                    
+                        
+                    </div> <!-- end of accordion -->
+
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of accordion-1 -->
+    <!-- end of questions -->
+
+       
+
+
+    <!-- Contact -->
+    <div id="contact" class="form-1 bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Contact details</h2>
+                    <p class="p-heading">For any type of online project please don't hesitate to get in touch with me.
+                        The fastest way is to send me your message using the following email <a class=" no-line"
+                            href="mailto:davidt.garita@gmail.com?subject=Professional%20Contact&body=Body%20text%20here">davidt.garita@gmail.com</a></p>
+                            <p class="p-heading">You can also contact me through my Linkedin <a class=" no-line"
+                                    href="https://www.linkedin.com/in/david-te%C3%B3filo-garitagoitia-romero/">David Teófilo Garitagoitia Romero</a></p>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <!-- Contact Form 
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control-input" id="cname" required>
+                            <label class="label-control" for="cname">Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control-input" id="cemail" required>
+                            <label class="label-control" for="cemail">Email</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control-textarea" id="cmessage" required></textarea>
+                            <label class="label-control" for="cmessage">Project details</label>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="form-control-submit-button">Submit</button>
+                        </div>
+                    </form>
+                    end of contact form -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of form-1 -->
+    <!-- end of contact -->
+
+
+
+
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="js/scripts.js"></script> <!-- Custom scripts -->
+</body>
 
 </html>
